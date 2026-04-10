@@ -1,0 +1,9 @@
+{
+  "name": "sita-ramam-advanced",
+  "version": "1.0.0",
+  "description": "A cinematic scroll-driven storytelling website for Sita Ramam",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 3000"
+  }
+}

@@ -1,0 +1,13 @@
+# Source videos (too large for GitHub)
+*.mov
+*.mp4
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Original audio file (copied to assets/)
+Sita-Ramam-Theme-(Tamil)-MassTamilan.dev.mp3

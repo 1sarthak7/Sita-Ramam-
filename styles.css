@@ -1,0 +1,1029 @@
+/* ============================================================
+   SITA RAMAM — Cinematic Storytelling Website
+   Design System & Styles
+   Cool Love Palette · Smooth Loving Font
+   ============================================================ */
+
+/* ==================== CUSTOM FONT ==================== */
+@font-face {
+    font-family: 'Smooth Loving';
+    src: url('smooth_loving/SmoothLoving.woff') format('woff'),
+         url('smooth_loving/SmoothLoving.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== CSS CUSTOM PROPERTIES ==================== */
+:root {
+    /* Cool Love Palette — soft blues, misty whites, gentle rose */
+    --accent-primary: #7EB8D8;       /* soft sky blue */
+    --accent-light: #A8D4E6;         /* light misty blue */
+    --accent-dark: #5A97B8;          /* deeper ocean blue */
+    --accent-shimmer: #C4E4F2;       /* ice shimmer */
+    --rose: #D4889C;                 /* gentle rose / love pink */
+    --rose-deep: #B86B7E;            /* deeper romantic rose */
+    --snow: #F0F4F8;                 /* cool snow white */
+    --mist: #E2E8EE;                 /* cool mist */
+    --ivory: #F8FAFC;               /* cool ivory */
+    --deep-night: #0B1118;           /* deep night sky */
+    --night: #101820;                /* dark navy night */
+    --night-light: #1A2530;          /* lighter navy */
+    --slate: #0D1520;                /* dark slate */
+    --text-light: #D8E2EA;           /* cool light text */
+    --text-muted: #7A8FA0;           /* muted blue-grey */
+
+    /* Typography */
+    --font-display: 'Cinzel', serif;
+    --font-handwritten: 'Smooth Loving', cursive;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-devanagari: 'Noto Serif Devanagari', serif;
+
+    /* Spacing */
+    --section-padding: 80px;
+
+    /* Transitions */
+    --transition-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --transition-dramatic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================== RESET & BASE ==================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto;
+    overflow-x: clip;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--deep-night);
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+}
+
+/* ==================== SCROLL PROGRESS BAR ==================== */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-dark), var(--accent-primary), var(--rose), var(--accent-light));
+    z-index: 10000;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 12px rgba(126, 184, 216, 0.4), 0 0 4px rgba(212, 136, 156, 0.3);
+}
+
+/* ==================== LOADING SCREEN ==================== */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--deep-night);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s var(--transition-smooth), visibility 1s;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loading-inner {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-ornament {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    margin: 0 auto 30px;
+}
+
+.loading-ornament.bottom {
+    margin: 30px auto 0;
+}
+
+.loading-title {
+    font-family: var(--font-devanagari);
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--accent-dark), var(--accent-shimmer), var(--accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.loading-subtitle {
+    font-family: var(--font-handwritten);
+    font-size: 1.4rem;
+    color: var(--rose);
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+}
+
+.loading-bar-container {
+    width: 280px;
+    height: 2px;
+    background: rgba(126, 184, 216, 0.12);
+    margin: 0 auto;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-dark), var(--accent-primary), var(--rose));
+    border-radius: 2px;
+    transition: width 0.3s var(--transition-smooth);
+}
+
+.loading-percent {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    margin-top: 16px;
+    letter-spacing: 0.1em;
+}
+
+/* ==================== AUDIO TOGGLE ==================== */
+.audio-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(126, 184, 216, 0.25);
+    border-radius: 50%;
+    background: rgba(11, 17, 24, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--accent-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.audio-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.audio-btn:hover {
+    border-color: var(--accent-light);
+    background: rgba(126, 184, 216, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(126, 184, 216, 0.15);
+}
+
+.audio-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.audio-icon.hidden {
+    display: none;
+}
+
+/* ==================== CANVAS & SCROLL SECTIONS ==================== */
+.scroll-section {
+    position: relative;
+    overflow: clip;
+}
+
+/* Title card section — shorter scroll runway since it's only 66 frames */
+.title-card-section {
+    height: 300vh;
+}
+
+/* Main story sections */
+#section-letters {
+    height: 500vh;
+}
+
+#section-journey {
+    height: 500vh;
+}
+
+#section-climax {
+    height: 400vh;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame-canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Radial gradient mask for soft edges */
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);
+}
+
+/* Title card canvas — no mask, full screen reveal */
+#title-canvas {
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+/* ==================== TITLE CARD OVERLAY ==================== */
+.title-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10vh;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.title-card-text {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s var(--transition-smooth), transform 1.2s var(--transition-dramatic);
+}
+
+.title-card-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.title-card-pre {
+    font-family: var(--font-handwritten);
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+    color: var(--snow);
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.8), 0 0 60px rgba(126, 184, 216, 0.2);
+}
+
+/* ==================== FILM GRAIN OVERLAY ==================== */
+.film-grain-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+/* ==================== VIGNETTE OVERLAY (climax) ==================== */
+.vignette-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(11, 17, 24, 0.7) 100%);
+}
+
+/* ==================== SCROLL EXPANSION HERO ==================== */
+.expansion-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--deep-night);
+    z-index: 50;
+}
+
+/* Fullscreen background image — blurred, fades on scroll */
+.expansion-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: opacity 0.15s ease;
+}
+
+.expansion-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(20px) brightness(0.4) saturate(1.2);
+    transform: scale(1.1); /* prevent blur edge artifacts */
+}
+
+.expansion-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 17, 24, 0.3);
+}
+
+/* The expanding media container */
+.expansion-media-wrap {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.expansion-media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.4), 0 0 120px rgba(126, 184, 216, 0.08);
+    /* Width/height set by JS */
+    transition: border-radius 0.3s ease;
+}
+
+.expansion-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.expansion-media-darkener {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: inherit;
+    transition: opacity 0.2s ease;
+}
+
+/* Title text that splits apart */
+.expansion-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+.expansion-title-top,
+.expansion-title-bottom {
+    font-family: var(--font-handwritten);
+    font-weight: normal;
+    color: var(--snow);
+    line-height: 1;
+    white-space: nowrap;
+    transition: none; /* JS drives movement */
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+
+.expansion-title-top {
+    font-size: clamp(4rem, 12vw, 9rem);
+}
+
+.expansion-title-bottom {
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+}
+
+/* Scroll hint */
+.expansion-hint {
+    position: absolute;
+    bottom: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+.expansion-hint span {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.expansion-hint-arrow {
+    width: 20px;
+    margin: 0 auto;
+    animation: bounce 2s infinite;
+}
+
+.expansion-hint-arrow svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-primary);
+    opacity: 0.6;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(8px); }
+    60% { transform: translateY(4px); }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ==================== STORY EXPANSION (between title card & story) ==================== */
+.expansion-story {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--deep-night);
+    z-index: 40;
+}
+
+.expansion-subtitle-top,
+.expansion-subtitle-bottom {
+    font-family: var(--font-handwritten);
+    font-weight: normal;
+    color: var(--snow);
+    line-height: 1.1;
+    white-space: nowrap;
+    transition: none;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+
+.expansion-subtitle-top {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+}
+
+.expansion-subtitle-bottom {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: var(--rose);
+}
+
+/* ==================== PARALLAX TRANSITIONS ==================== */
+.parallax-transition {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    z-index: 0;
+}
+
+.parallax-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35) saturate(1.3);
+    transform: translateY(0);
+    will-change: transform;
+}
+
+/* Gradient fades — blend into the dark sections above and below */
+.parallax-fade-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, var(--deep-night), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.parallax-fade-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, var(--deep-night), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Content overlay */
+.parallax-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-dramatic);
+}
+
+.parallax-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parallax-ornament {
+    font-size: 1.6rem;
+    color: var(--rose);
+    margin-bottom: 24px;
+    opacity: 0.6;
+}
+
+.parallax-text {
+    font-family: var(--font-handwritten);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: normal;
+    color: var(--snow);
+    margin-bottom: 12px;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
+}
+
+.parallax-subtext {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    margin-bottom: 24px;
+}
+
+.parallax-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    margin: 0 auto;
+    opacity: 0.5;
+}
+
+/* ==================== STORY OVERLAY CARDS ==================== */
+.story-card {
+    position: absolute;
+    z-index: 5;
+    max-width: 420px;
+    padding: 36px 40px;
+    background: rgba(11, 17, 24, 0.7);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    border: 1px solid rgba(126, 184, 216, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(126, 184, 216, 0.06);
+
+    /* Initially hidden */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-dramatic);
+    pointer-events: none;
+}
+
+.story-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Card positions */
+.card-left {
+    left: 6%;
+    top: 50%;
+    transform: translateY(calc(-50% + 40px));
+}
+.card-left.visible {
+    transform: translateY(-50%);
+}
+
+.card-right {
+    right: 6%;
+    top: 50%;
+    transform: translateY(calc(-50% + 40px));
+}
+.card-right.visible {
+    transform: translateY(-50%);
+}
+
+.card-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 40px));
+}
+.card-center.visible {
+    transform: translate(-50%, -50%);
+}
+
+.card-ornament {
+    font-size: 1.4rem;
+    color: var(--rose);
+    margin-bottom: 16px;
+    opacity: 0.7;
+}
+
+.card-title {
+    font-family: var(--font-handwritten);
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: var(--accent-light);
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+}
+
+.card-text {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.card-line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--rose), transparent);
+    margin-top: 20px;
+    opacity: 0.5;
+}
+
+/* ==================== CLIMAX CARDS ==================== */
+.climax-card {
+    background: rgba(11, 17, 24, 0.75);
+    border-color: rgba(212, 136, 156, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(212, 136, 156, 0.08);
+}
+
+.climax-quote {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.quote-mark {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--rose);
+    opacity: 0.4;
+    line-height: 0.5;
+    display: block;
+}
+
+.quote-mark.closing {
+    margin-top: 10px;
+}
+
+.quote-text {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--snow);
+    line-height: 1.6;
+    margin: 16px 0;
+}
+
+/* ==================== TRIBUTE SECTION ==================== */
+.tribute-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, var(--deep-night) 0%, var(--night) 30%, var(--night) 70%, var(--deep-night) 100%);
+    overflow: hidden;
+    padding: var(--section-padding) 20px;
+}
+
+/* Subtle blue glow in tribute */
+.tribute-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(ellipse at center, rgba(126, 184, 216, 0.04) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.tribute-bg-grain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+.tribute-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.5s var(--transition-smooth), transform 1.5s var(--transition-dramatic);
+}
+
+.tribute-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tribute-ornament-top,
+.tribute-ornament-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    color: var(--rose);
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.tribute-ornament-bottom {
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.tribute-line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+}
+
+.tribute-quote {
+    font-family: var(--font-handwritten);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: normal;
+    font-style: normal;
+    color: var(--snow);
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.tribute-divider {
+    color: var(--rose);
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+    opacity: 0.5;
+}
+
+.tribute-movie-title {
+    font-family: var(--font-handwritten);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--accent-light), var(--snow), var(--rose), var(--accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.tribute-year {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    letter-spacing: 0.3em;
+    margin-bottom: 40px;
+}
+
+.tribute-credits {
+    margin-bottom: 10px;
+}
+
+.tribute-credits p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+}
+
+.tribute-credits strong {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.tribute-cast {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.05em !important;
+    color: var(--accent-primary) !important;
+    opacity: 0.7;
+}
+
+.tribute-music {
+    margin-top: 4px !important;
+}
+
+.tribute-footer {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    opacity: 0.5;
+    margin-top: 40px;
+}
+
+.tribute-made-with {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    opacity: 0.3;
+    margin-top: 60px;
+    font-style: italic;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .story-card {
+        max-width: calc(100% - 40px);
+        padding: 28px 30px;
+    }
+
+    .card-left,
+    .card-right {
+        left: 20px;
+        right: 20px;
+        top: auto;
+        bottom: 10%;
+        transform: translateY(40px);
+    }
+    .card-left.visible,
+    .card-right.visible {
+        transform: translateY(0);
+    }
+
+    .card-center {
+        left: 20px;
+        right: 20px;
+        top: auto;
+        bottom: 10%;
+        transform: translateX(0) translateY(40px);
+        width: calc(100% - 40px);
+    }
+    .card-center.visible {
+        transform: translateX(0) translateY(0);
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .audio-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .quote-text {
+        font-size: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .title-card-section {
+        height: 250vh;
+    }
+
+    #section-letters,
+    #section-journey {
+        height: 450vh;
+    }
+
+    #section-climax {
+        height: 350vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-line.line-1 {
+        font-size: 3.5rem;
+    }
+    .hero-title-line.line-2 {
+        font-size: 3rem;
+    }
+
+    .loading-title {
+        font-size: 2.2rem;
+    }
+
+    .tribute-quote {
+        font-size: 1.3rem;
+    }
+}
+
+/* ==================== UTILITY ==================== */
+.hidden {
+    display: none !important;
+}
+
+/* Smooth scrollbar styling (webkit) */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--deep-night);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(126, 184, 216, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(126, 184, 216, 0.4);
+}
+
+/* Selection color */
+::selection {
+    background: rgba(212, 136, 156, 0.3);
+    color: var(--snow);
+}
