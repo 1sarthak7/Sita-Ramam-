@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A cinematic storytelling experience — relive the timeless love story of Sita Ramam through scroll-driven animation and poetic narration.">
+    <title>Sita Ramam — A Love Beyond Time</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ==================== LOADING SCREEN ==================== -->
+    <div id="loading-screen">
+        <div class="loading-inner">
+            <div class="loading-ornament top"></div>
+            <h2 class="loading-title">सीता राम</h2>
+            <p class="loading-subtitle">Preparing a love story...</p>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+            </div>
+            <p class="loading-percent" id="loading-percent">0%</p>
+            <div class="loading-ornament bottom"></div>
+        </div>
+    </div>
+
+    <!-- ==================== SCROLL PROGRESS BAR ==================== -->
+    <div id="scroll-progress-bar"></div>
+
+    <!-- ==================== AUDIO TOGGLE ==================== -->
+    <button id="audio-toggle" class="audio-btn" aria-label="Toggle background music">
+        <svg id="audio-icon-on" class="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        <svg id="audio-icon-off" class="audio-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+    </button>
+
+    <!-- ==================== SECTION 0: SCROLL EXPANSION HERO ==================== -->
+    <section id="section-expansion-hero" class="expansion-hero">
+        <!-- Background image (blurred, fades out as media expands) -->
+        <div class="expansion-bg" id="expansion-bg">
+            <img src="frames/main/frame-0050.jpg" alt="Background" class="expansion-bg-img">
+            <div class="expansion-bg-overlay"></div>
+        </div>
+
+        <!-- Centered expanding media container -->
+        <div class="expansion-media-wrap">
+            <div class="expansion-media" id="expansion-media">
+                <img src="frames/title.png" alt="Sita Ramam" class="expansion-media-img" id="expansion-media-img">
+                <div class="expansion-media-darkener" id="expansion-media-darkener"></div>
+            </div>
+
+            <!-- Title text that splits apart on scroll -->
+            <div class="expansion-text" id="expansion-text">
+                <h1 class="expansion-title-top" id="expansion-title-top">Sita</h1>
+                <h1 class="expansion-title-bottom" id="expansion-title-bottom">Ramam</h1>
+            </div>
+
+            <!-- Scroll hint -->
+            <div class="expansion-hint" id="expansion-hint">
+                <span>Scroll to explore</span>
+                <div class="expansion-hint-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 1: TITLE CARD ==================== -->
+    <section id="section-title-card" class="scroll-section title-card-section">
+        <div class="sticky-wrapper">
+            <canvas id="title-canvas" class="frame-canvas"></canvas>
+            <div class="title-card-overlay">
+                <div class="title-card-text" id="title-fade-text">
+                    <p class="title-card-pre">Experience the timeless tale of</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 1.5: STORY EXPANSION ==================== -->
+    <section id="section-expansion-story" class="expansion-story">
+        <!-- Background — blurred frame -->
+        <div class="expansion-bg" id="expansion-story-bg">
+            <img src="frames/title2.png" alt="Background" class="expansion-bg-img">
+            <div class="expansion-bg-overlay"></div>
+        </div>
+
+        <!-- Expanding media container -->
+        <div class="expansion-media-wrap">
+            <div class="expansion-media expansion-media-story" id="expansion-story-media">
+                <img src="frames/title3.png" alt="Sita Ramam Story" class="expansion-media-img">
+                <div class="expansion-media-darkener" id="expansion-story-darkener"></div>
+            </div>
+
+            <!-- Text that splits apart -->
+            <div class="expansion-text" id="expansion-story-text">
+                <h2 class="expansion-subtitle-top" id="expansion-story-top">A love letter</h2>
+                <h2 class="expansion-subtitle-bottom" id="expansion-story-bottom">written in sacrifice</h2>
+            </div>
+
+            <!-- Scroll hint -->
+            <div class="expansion-hint" id="expansion-story-hint">
+                <span>Scroll to continue</span>
+                <div class="expansion-hint-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: THE LETTERS & LOVE STORY ==================== -->
+    <section id="section-letters" class="scroll-section">
+        <div class="sticky-wrapper">
+            <canvas id="main-canvas" class="frame-canvas"></canvas>
+
+            <!-- Film grain overlay -->
+            <div class="film-grain-overlay"></div>
+
+            <!-- Story overlay cards -->
+            <div class="story-card card-left" id="phase-1">
+                <div class="card-ornament">❦</div>
+                <h2 class="card-title">The Letters</h2>
+                <p class="card-text">In the snow-clad silence of Kashmir, a soldier named Ram waited — not for orders, but for a letter that would change everything.</p>
+                <div class="card-line"></div>
+            </div>
+
+            <div class="story-card card-right" id="phase-2">
+                <div class="card-ornament">❦</div>
+                <h2 class="card-title">Sita</h2>
+                <p class="card-text">She was Sita. A name he knew only from ink on paper. Yet her words gave him a reason to survive the cold and the war.</p>
+                <div class="card-line"></div>
+            </div>
+
+            <div class="story-card card-center" id="phase-3">
+                <div class="card-ornament">❦</div>
+                <h2 class="card-title">A World of Their Own</h2>
+                <p class="card-text">With every letter, she painted a world where war could not reach. Where love was the only country, and longing was the only language.</p>
+                <div class="card-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PARALLAX: Letters → Journey ==================== -->
+    <section class="parallax-transition" data-parallax>
+        <div class="parallax-bg">
+            <img src="frames/main/frame-0180.jpg" alt="" class="parallax-bg-img" data-parallax-img>
+        </div>
+        <div class="parallax-fade-top"></div>
+        <div class="parallax-fade-bottom"></div>
+        <div class="parallax-content" data-parallax-content>
+            <div class="parallax-ornament">✦</div>
+            <p class="parallax-text">Her words became his compass</p>
+            <p class="parallax-subtext">Through every battle, every sleepless night</p>
+            <div class="parallax-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: THE JOURNEY ==================== -->
+    <section id="section-journey" class="scroll-section">
+        <div class="sticky-wrapper">
+            <canvas id="journey-canvas" class="frame-canvas"></canvas>
+            <div class="film-grain-overlay"></div>
+
+            <div class="story-card card-right" id="phase-4">
+                <div class="card-ornament">✧</div>
+                <h2 class="card-title">The Journey Begins</h2>
+                <p class="card-text">Years later, a stranger carries Ram's final letter across borders and time. A journey that begins with duty, and ends with devotion.</p>
+                <div class="card-line"></div>
+            </div>
+
+            <div class="story-card card-left" id="phase-5">
+                <div class="card-ornament">✧</div>
+                <h2 class="card-title">Who Was Sita?</h2>
+                <p class="card-text">Through the deserts of Hyderabad, across the seas — one question remained. Who was Sita, and why did a soldier give his life for a name?</p>
+                <div class="card-line"></div>
+            </div>
+
+            <div class="story-card card-center" id="phase-6">
+                <div class="card-ornament">✧</div>
+                <h2 class="card-title">Unveiling the Truth</h2>
+                <p class="card-text">The journey reveals not just a destination, but the depth of a love story that time tried to bury — and failed.</p>
+                <div class="card-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PARALLAX: Journey → Climax ==================== -->
+    <section class="parallax-transition" data-parallax>
+        <div class="parallax-bg">
+            <img src="frames/main/frame-0370.jpg" alt="" class="parallax-bg-img" data-parallax-img>
+        </div>
+        <div class="parallax-fade-top"></div>
+        <div class="parallax-fade-bottom"></div>
+        <div class="parallax-content" data-parallax-content>
+            <div class="parallax-ornament">✧</div>
+            <p class="parallax-text">The truth was never far</p>
+            <p class="parallax-subtext">It was waiting, buried in a letter</p>
+            <div class="parallax-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: THE CLIMAX ==================== -->
+    <section id="section-climax" class="scroll-section climax-section">
+        <div class="sticky-wrapper">
+            <canvas id="climax-canvas" class="frame-canvas"></canvas>
+            <div class="film-grain-overlay"></div>
+            <div class="vignette-overlay"></div>
+
+            <div class="story-card card-center climax-card" id="phase-7">
+                <div class="card-ornament">✦</div>
+                <h2 class="card-title">The Sacrifice</h2>
+                <p class="card-text">Some love stories don't end with reunion. They end with realization. Ram's sacrifice was not death — it was choosing love over life.</p>
+                <div class="card-line"></div>
+            </div>
+
+            <div class="story-card card-center climax-card" id="phase-8">
+                <div class="climax-quote">
+                    <span class="quote-mark">"</span>
+                    <p class="quote-text">He didn't die for a country. He lived — and died — for Sita.</p>
+                    <span class="quote-mark closing">"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PARALLAX: Climax → Tribute ==================== -->
+    <section class="parallax-transition" data-parallax>
+        <div class="parallax-bg">
+            <img src="frames/main/frame-0560.jpg" alt="" class="parallax-bg-img" data-parallax-img>
+        </div>
+        <div class="parallax-fade-top"></div>
+        <div class="parallax-fade-bottom"></div>
+        <div class="parallax-content" data-parallax-content>
+            <div class="parallax-ornament">❦</div>
+            <p class="parallax-text">Some stories never end</p>
+            <p class="parallax-subtext">They live on, in the hearts they touched</p>
+            <div class="parallax-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 5: TRIBUTE ==================== -->
+    <section id="section-tribute" class="tribute-section">
+        <div class="tribute-bg-grain"></div>
+        <div class="tribute-content">
+            <div class="tribute-ornament-top">
+                <span>✦</span>
+                <div class="tribute-line"></div>
+                <span>✦</span>
+            </div>
+
+            <p class="tribute-quote">"In a world of wars, Ram chose love.<br>And in that choice, he became eternal."</p>
+
+            <div class="tribute-divider">
+                <span>❦</span>
+            </div>
+
+            <h2 class="tribute-movie-title">Sita Ramam</h2>
+            <p class="tribute-year">2022</p>
+
+            <div class="tribute-credits">
+                <p>A Film by <strong>Hanu Raghavapudi</strong></p>
+                <p class="tribute-cast">Dulquer Salmaan · Mrunal Thakur · Rashmika Mandanna</p>
+                <p class="tribute-music">Music by <strong>Vishal Chandrasekhar</strong></p>
+            </div>
+
+            <div class="tribute-ornament-bottom">
+                <span>✦</span>
+                <div class="tribute-line"></div>
+                <span>✦</span>
+            </div>
+
+            <p class="tribute-footer">A love that transcends time</p>
+
+            <p class="tribute-made-with">Made with ♥ as a tribute to cinema</p>
+        </div>
+    </section>
+
+    <!-- Audio element -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="assets/audio/theme.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
