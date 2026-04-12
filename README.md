@@ -38,7 +38,7 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
 
 <br/>
 
-## ✨ Features
+##  Features
 
 <table>
   <tr>
@@ -47,7 +47,7 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
       <p>575 frames from the main video + 66 title card frames rendered on HTML5 Canvas, synchronized to scroll position at 60fps. Inspired by Apple's product page animation technique.</p>
     </td>
     <td width="50%">
-      <h3>🔮 Scroll Expansion Hero</h3>
+      <h3> Scroll Expansion Hero</h3>
       <p>Two expanding media sections that intercept scroll events — a centered image card smoothly expands to fill the viewport as you scroll, with title text splitting apart cinematically.</p>
     </td>
   </tr>
@@ -57,13 +57,13 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
       <p>Three parallax divider sections between story chapters with depth-creating background movement, gradient fades, and poetic text that drifts into view.</p>
     </td>
     <td width="50%">
-      <h3>✍️ Smooth Loving Font</h3>
+      <h3> Smooth Loving Font</h3>
       <p>Custom handwritten font giving titles and quotes an intimate, love-letter aesthetic — as if Ram himself wrote the words.</p>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <h3>💎 Glassmorphic Story Cards</h3>
+      <h3> Glassmorphic Story Cards</h3>
       <p>Frosted-glass overlay cards with backdrop blur appear at precise scroll moments to narrate each chapter of the story.</p>
     </td>
     <td width="50%">
@@ -75,7 +75,7 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
 
 <br/>
 
-## 🎨 Design Philosophy
+##  Design Philosophy
 
 <p align="center">
   <img src="frames/title3.png" alt="Story Scene" width="500" style="border-radius: 12px;" />
@@ -92,7 +92,7 @@ The design draws from the film's emotional palette — cool blues of Kashmir sno
 
 <br/>
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Sita Ramam/
@@ -117,7 +117,7 @@ Sita Ramam/
 
 <br/>
 
-## 🎭 The Story Flow
+##  The Story Flow
 
 ```
    ╭──────────────────────────────────────╮
@@ -131,13 +131,13 @@ Sita Ramam/
    ╰──────────────┬───────────────────────╯
                   │ scroll
    ╭──────────────▼───────────────────────╮
-   │  ✦  STORY EXPANSION                 │
+   │  ✦   STORY EXPANSION                 │
    │     "A love letter / written in      │
    │      sacrifice" split reveal         │
    ╰──────────────┬───────────────────────╯
                   │ scroll
    ╭──────────────▼───────────────────────╮
-   │  📜  THE LETTERS & LOVE STORY        │
+   │      THE LETTERS & LOVE STORY        │
    │     Frames 1-192 · 3 story cards     │
    ╰──────────────┬───────────────────────╯
                   │
@@ -148,7 +148,7 @@ Sita Ramam/
         └─────────┬─────────┘
                   │
    ╭──────────────▼───────────────────────╮
-   │  🗺️  THE JOURNEY                    │
+   │       THE JOURNEY                    │
    │     Frames 192-384 · 3 story cards   │
    ╰──────────────┬───────────────────────╯
                   │
@@ -159,7 +159,7 @@ Sita Ramam/
         └─────────┬─────────┘
                   │
    ╭──────────────▼───────────────────────╮
-   │  💔  THE CLIMAX                      │
+   │    THE CLIMAX                      │
    │     Frames 384-575 · Vignette        │
    │     "He lived — and died — for Sita" │
    ╰──────────────┬───────────────────────╯
@@ -171,7 +171,7 @@ Sita Ramam/
         └─────────┬─────────┘
                   │
    ╭──────────────▼───────────────────────╮
-   │  🕊️  TRIBUTE                        │
+   │       TRIBUTE                        │
    │     Credits · Final quote            │
    │     A Film by Hanu Raghavapudi       │
    ╰─────────────────────────────────────╯
@@ -179,7 +179,7 @@ Sita Ramam/
 
 <br/>
 
-## ⚡ Technical Highlights
+##  Technical Highlights
 
 ### Frame Animation Engine
 - **Separate scroll & render loops** — scroll listener calculates target frame index, `requestAnimationFrame` only draws when the frame changes
@@ -201,7 +201,7 @@ Sita Ramam/
 
 <br/>
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - A modern browser (Chrome, Firefox, Safari, Edge)
