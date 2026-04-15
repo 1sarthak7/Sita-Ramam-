@@ -260,3 +260,10 @@ ffmpeg -i "Sita Ramam Video.mov" -vf "fps=8,scale=1920:-1" -q:v 3 frames/main/fr
 <p align="center">
   <sub>✦ A love that transcends time ✦</sub>
 </p>
+
+<div align="center">
+
+Built with Love and Hearts by [Sarthak Bhopale](https://github.com/1sarthak7).
+
+<br/>
+
