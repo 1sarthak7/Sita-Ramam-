@@ -5,7 +5,7 @@
 <h1 align="center">✦ Sita Ramam ✦</h1>
 
 <p align="center">
-  <em>A scroll-driven storytelling experience</em>
+  <em>Sita Ramam | Story Telling Scroll</em>
 </p>
 
 <p align="center">
