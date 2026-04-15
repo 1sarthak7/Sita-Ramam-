@@ -28,7 +28,7 @@
 
 <br/>
 
-## 🎬 About
+##  About
 
 **Sita Ramam** is an immersive, scroll-driven storytelling website that reimagines the love story from the 2022 Telugu film *Sita Ramam* — a tale of a soldier's letters, a woman's devotion, and a love that transcends time, borders, and death.
 
@@ -43,7 +43,7 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
 <table>
   <tr>
     <td width="50%">
-      <h3>🎞️ Scroll-Driven Frame Animation</h3>
+      <h3> Scroll-Driven Frame Animation</h3>
       <p>575 frames from the main video + 66 title card frames rendered on HTML5 Canvas, synchronized to scroll position at 60fps. Inspired by Apple's product page animation technique.</p>
     </td>
     <td width="50%">
@@ -53,7 +53,7 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
   </tr>
   <tr>
     <td width="50%">
-      <h3>🌊 Parallax Transitions</h3>
+      <h3>Parallax Transitions</h3>
       <p>Three parallax divider sections between story chapters with depth-creating background movement, gradient fades, and poetic text that drifts into view.</p>
     </td>
     <td width="50%">
@@ -67,7 +67,7 @@ Built entirely with **vanilla HTML, CSS, and JavaScript** — no frameworks, no 
       <p>Frosted-glass overlay cards with backdrop blur appear at precise scroll moments to narrate each chapter of the story.</p>
     </td>
     <td width="50%">
-      <h3>🎵 Theme Music</h3>
+      <h3> Theme Music</h3>
       <p>Sita Ramam's iconic soundtrack with a custom play/pause toggle, smooth volume fade-in/out, and no autoplay interruption.</p>
     </td>
   </tr>
@@ -126,7 +126,7 @@ Sita Ramam/
    ╰──────────────┬───────────────────────╯
                   │ scroll
    ╭──────────────▼───────────────────────╮
-   │  🎞️  TITLE CARD ANIMATION           │
+   │       TITLE CARD ANIMATION           │
    │     66-frame canvas scrub            │
    ╰──────────────┬───────────────────────╯
                   │ scroll
